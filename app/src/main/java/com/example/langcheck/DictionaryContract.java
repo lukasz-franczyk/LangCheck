@@ -12,5 +12,9 @@ public class DictionaryContract {
         public static final String DICTIONARY_POLISHNAME = "PolishName";
         public static final String DICTIONARY_CODE = "Code";
         public static final String DICTIONARY_ORIGINNAME = "OriginName";
+
+        private Columns(){
+            //private constructor to prevent instantiation
+        }
     }
 }
