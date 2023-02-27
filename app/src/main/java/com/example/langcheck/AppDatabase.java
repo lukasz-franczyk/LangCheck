@@ -61,6 +61,14 @@ static AppDatabase getInstance(Context context){
 
  @Override
  public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    Log.d(TAG, "onUpgrade: starts");
+    switch(i) {
+        case 1:
+            // upgrade logic from version
+            break;
+        default:
+            throw new IllegalStateException("onUpgrade() with unknown newVersion: " + i1);
+    }
+    Log.d(TAG, "onUpgrade: ends");
  }
 }
