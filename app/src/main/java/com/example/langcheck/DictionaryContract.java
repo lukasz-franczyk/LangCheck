@@ -1,5 +1,9 @@
 package com.example.langcheck;
 
+import static com.example.langcheck.AppProvider.CONTENT_AUTHORITY_URI;
+
+import android.content.ContentUris;
+import android.net.Uri;
 import android.provider.BaseColumns;
 
 public class DictionaryContract {
@@ -16,5 +20,18 @@ public class DictionaryContract {
         private Columns(){
             //private constructor to prevent instantiation
         }
+    }
+
+    /**
+     * The URI to access the Dictionary table
+     */
+    public static final Uri CONTENT_URI = Uri.withAppendedPath(CONTENT_AUTHORITY_URI, TABLE_NAME);
+
+    static Uri buildDictionaryUri(long dictionaryId){
+        return ContentUris.withAppendedId(CONTENT_URI, dictionaryId);
+    }
+
+    static long getDictionaryId(Uri uri){
+        return ContentUris.parseId(uri);
     }
 }
